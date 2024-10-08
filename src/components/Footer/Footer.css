@@ -1,0 +1,7 @@
+.footer__info {
+  padding: 0 0 24px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: "CabinetGrotesk-Medium", Arial, Helvetica, sans-serif;
+}
