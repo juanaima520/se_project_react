@@ -1,6 +1,6 @@
 .page {
   background-color: #f3f3f3;
-  font-family: CabinetGrotesk-Bold, Arial, Helvetica, sans-serif;
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
 }
 
 .page__content {
@@ -8,4 +8,8 @@
   /* max-height: 40px; */
   margin: 0 auto;
   padding: 0 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

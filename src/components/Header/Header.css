@@ -1,4 +1,3 @@
-
 .header {
   display: flex;
   align-items: center;
@@ -10,6 +9,7 @@
 }
 
 .header__date-and-location {
+  font-size: 20px;
   margin: 0;
 }
 
@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 20px;
 }
 
 .header__username {
