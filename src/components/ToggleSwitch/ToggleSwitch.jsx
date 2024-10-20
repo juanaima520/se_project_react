@@ -6,7 +6,9 @@ function ToggleSwitch() {
   const { handleToggleSwitchChange } = useContext(
     CurrentTemperatureUnitContext
   );
-  const [checked, setChecked] = useState("false");
+
+  const [checked, setChecked] = useState("");
+
   const handleChange = () => {
     handleToggleSwitchChange();
     setChecked(!checked);
@@ -20,10 +22,10 @@ function ToggleSwitch() {
         onChange={handleChange}
         checked={checked}
       />
-      <label className="react-switch-label" htmlFor={`react-switch-new`}>
+      <label className="switch__label" htmlFor={`react-switch-new`}>
         <p className="text-f">F</p>
         <p className="text-c">C</p>
-        <span className={`react-switch-button`} />
+        <span className={`switch__button`} />
       </label>
     </>
   );
