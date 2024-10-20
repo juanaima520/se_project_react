@@ -1,0 +1,19 @@
+.clothes__item-button {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.clothes__button {
+  width: 88px;
+  height: 25px;
+  border: none;
+  color: #00000099;
+}
+
+.clothes__item {
+  width: 95px;
+  height: 25px;
+  font-size: 20px;
+}

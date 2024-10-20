@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
@@ -10,6 +12,7 @@ import Footer from "../Footer/Footer";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -82,7 +85,18 @@ function App() {
         <div className="page__content">
           <div>
             <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-            <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Main
+                    weatherData={weatherData}
+                    handleCardClick={handleCardClick}
+                  />
+                }
+              />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
           </div>
           <Footer />
         </div>
