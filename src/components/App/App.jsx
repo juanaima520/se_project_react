@@ -13,6 +13,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
+import { getItems } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -73,6 +74,14 @@ function App() {
         const filterData = filterWeatherData(data);
         console.log(filterData.temp);
         setWeatherData(filterData);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data);
       })
       .catch(console.error);
   }, []);
