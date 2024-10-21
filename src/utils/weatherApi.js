@@ -20,10 +20,11 @@ export const filterWeatherData = (data) => {
     C: Math.round(((data.main.temp - 32) * 5) / 9),
   };
   console.log(result.temp);
+  result.type = getWeatherType(data.main.temp.F);
+  // result.condition = data.weather[0].main.toLowerCase();
+  return result;
   //   weather.temperature.F = data.main.temp;
   // weather.temperature.C = Math.round((data.main.temp - 32) * 5/9);
-  result.type = getWeatherType(data.main.temp.F);
-  return result;
 };
 // const temp = getWeatherType?.temperature?.[CurrentTemperatureUnitContext];
 const getWeatherType = (temperature) => {

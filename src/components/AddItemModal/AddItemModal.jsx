@@ -23,8 +23,9 @@ function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link, radio });
+    onAddItem({ name, imageUrl: link, weather: radio });
   };
+
   return (
     <ModalWithForm
       title="New garment"
@@ -67,7 +68,7 @@ function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
               id="hot"
               type="radio"
               className="modal__radio-input"
-              value={radio}
+              value="hot"
               onChange={handleRadioChange}
             />
             <span className="modal__span">Hot</span>
@@ -81,7 +82,7 @@ function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
               id="warm"
               type="radio"
               className="modal__radio-input"
-              value={radio}
+              value="warm"
               onChange={handleRadioChange}
             />
             <span className="modal__span">Warm</span>
@@ -95,7 +96,7 @@ function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
               id="cold"
               type="radio"
               className="modal__radio-input"
-              value={radio}
+              value="cold"
               onChange={handleRadioChange}
             />
             <span className="modal__span">Cold</span>

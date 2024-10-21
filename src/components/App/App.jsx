@@ -14,7 +14,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { getItems } from "../../utils/api";
-
+import api from "../../utils/api";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -29,8 +29,7 @@ function App() {
     weather: "",
     link: "",
   });
-
-  console.log(currentTemperatureUnit);
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -49,23 +48,35 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
+    api.addItem(values).then((res) => {
+      console.log(res);
+      const newItem = {
+        ...values,
+        _id: res._id,
+      };
+      setClothingItems([newItem, ...clothingItems]);
+      closeActiveModal();
+    });
   };
+
+  const handleCardDelete = (card) => {
+    api
+      .removeItem(card._id)
+      .then(() => {
+        setClothingItems(
+          clothingItems.filter((currentCard) => card._id !== currentCard._id)
+        );
+        closeActiveModal();
+      })
+      .catch((err) => console.log(err));
+  };
+
   // const handleToggleSwitchChange = () => {
   //   if (currentTemperatureUnit === "F") {
   //     setCurrentTemperatureUnit("C");
   //   } else {
   //     setCurrentTemperatureUnit("F");
   //   }
-  // };
-
-  // const Checkbox = ({ label, value, onChange }) => {
-  //   return (
-  //     <label>
-  //       <input type="checkbox" checked={value} onChange={onChange} />
-  //       {label}
-  //     </label>
-  //   );
   // };
 
   useEffect(() => {
@@ -79,9 +90,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getItems()
+    api
+      .getItems()
       .then((data) => {
-        console.log(data);
+        setClothingItems(data);
       })
       .catch(console.error);
   }, []);
@@ -101,12 +113,18 @@ function App() {
                   <Main
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
+                    clothingItems={clothingItems}
                   />
                 }
               />
               <Route
                 path="/profile"
-                element={<Profile onCardClick={handleCardClick} />}
+                element={
+                  <Profile
+                    clothingItems={clothingItems}
+                    onCardClick={handleCardClick}
+                  />
+                }
               />
             </Routes>
           </div>
@@ -119,8 +137,9 @@ function App() {
         />
         <ItemModal
           activeModal={activeModal}
-          card={selectedCard}
+          selectedCard={selectedCard}
           onClose={closeActiveModal}
+          handleCardDelete={handleCardDelete}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
