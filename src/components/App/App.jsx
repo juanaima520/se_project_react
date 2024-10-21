@@ -71,6 +71,12 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  // const handleOnConfirmDelete=()=>{
+  //   handleCardDelete(card._id);
+  // setActiveModal("delete");
+
+  // }
+
   // const handleToggleSwitchChange = () => {
   //   if (currentTemperatureUnit === "F") {
   //     setCurrentTemperatureUnit("C");

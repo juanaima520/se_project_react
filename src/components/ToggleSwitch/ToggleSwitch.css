@@ -34,7 +34,7 @@
 }
 
 .switch__box:checked + .switch__label .switch__button {
-  left: calc(100% - 2px);
+  left: calc(100%);
   transform: translateX(-100%);
 }
 
