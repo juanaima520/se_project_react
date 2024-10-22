@@ -58,6 +58,9 @@ function App() {
       closeActiveModal();
     });
   };
+  const addButtonClick = () => {
+    setActiveModal("add-garment");
+  };
 
   const handleCardDelete = (card) => {
     api
@@ -129,6 +132,7 @@ function App() {
                   <Profile
                     clothingItems={clothingItems}
                     onCardClick={handleCardClick}
+                    addButtonClick={addButtonClick}
                   />
                 }
               />
