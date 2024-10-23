@@ -1,0 +1,42 @@
+/* .delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 670px;
+  height: 280px;
+} */
+
+.delete__confirm-cancel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.delete__text {
+  font-size: 20px;
+  color: #000;
+  width: 367px;
+  height: 48px;
+  text-align: center;
+}
+
+.delete__confirmation {
+  color: #ff4d00;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.delete__cancelation {
+  padding-top: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.delete__close {
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

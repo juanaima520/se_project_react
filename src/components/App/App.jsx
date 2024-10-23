@@ -14,10 +14,12 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { getItems, addItem, removeItem } from "../../utils/api";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
+
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
-    temp: { F: 999 },
+    temp: { F: "" },
     city: "",
   });
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -40,6 +42,9 @@ function App() {
   };
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+  const handleDeleteClick = () => {
+    setActiveModal("delete");
   };
 
   const handleToggleSwitchChange = () => {
@@ -144,8 +149,15 @@ function App() {
           selectedCard={selectedCard}
           onClose={closeActiveModal}
           handleCardDelete={handleCardDelete}
+          handleDeleteClick={handleDeleteClick}
         />
-        {/* <DeleteItemModal isOpen={activeModal ==="delete"}/> */}
+        <DeleteItemModal
+          isOpen={activeModal === "delete"}
+          handleCardDelete={handleCardDelete}
+          handleDeleteClick={handleDeleteClick}
+          selectedCard={selectedCard}
+          onClose={closeActiveModal}
+        />
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
