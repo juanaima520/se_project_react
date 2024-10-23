@@ -13,8 +13,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems } from "../../utils/api";
-import api from "../../utils/api";
+import { getItems, addItem, removeItem } from "../../utils/api";
 function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -48,7 +47,7 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    api.addItem(values).then((res) => {
+    return addItem(values).then((res) => {
       console.log(res);
       const newItem = {
         ...values,
@@ -58,13 +57,9 @@ function App() {
       closeActiveModal();
     });
   };
-  const addButtonClick = () => {
-    setActiveModal("add-garment");
-  };
 
   const handleCardDelete = (card) => {
-    api
-      .removeItem(card._id)
+    removeItem(card._id)
       .then(() => {
         setClothingItems(
           clothingItems.filter((currentCard) => card._id !== currentCard._id)
@@ -99,8 +94,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    api
-      .getItems()
+    getItems()
       .then((data) => {
         setClothingItems(data);
       })
@@ -132,7 +126,7 @@ function App() {
                   <Profile
                     clothingItems={clothingItems}
                     onCardClick={handleCardClick}
-                    addButtonClick={addButtonClick}
+                    addButtonClick={handleAddClick}
                   />
                 }
               />
@@ -151,6 +145,7 @@ function App() {
           onClose={closeActiveModal}
           handleCardDelete={handleCardDelete}
         />
+        {/* <DeleteItemModal isOpen={activeModal ==="delete"}/> */}
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

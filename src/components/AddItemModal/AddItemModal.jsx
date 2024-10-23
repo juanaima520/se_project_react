@@ -23,7 +23,14 @@ function AddItemModal({ closeActiveModal, onAddItem, isOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl: link, weather: radio });
+    onAddItem({ name, imageUrl: link, weather: radio })
+      .then(() => {
+        //empty the inputs
+        setName("");
+        setUrl("");
+        setRadio("");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

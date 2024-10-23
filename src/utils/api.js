@@ -1,14 +1,15 @@
 import { json } from "react-router-dom";
 
 const baseUrl = "http://localhost:3001";
+function checkResponse(res) {
+  return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
+}
 function getItems() {
   return fetch(`${baseUrl}/items`, {
     Headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 const addItem = ({ name, weather, imageUrl }) => {
@@ -22,9 +23,7 @@ const addItem = ({ name, weather, imageUrl }) => {
       weather,
       imageUrl,
     }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
-  });
+  }).then(checkResponse);
 };
 
 const removeItem = (id) => {
@@ -33,16 +32,7 @@ const removeItem = (id) => {
     Headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
-  });
+  }).then(checkResponse);
 };
 
-const api = {
-  getItems,
-  addItem,
-  removeItem,
-};
-
-export default api;
-export { getItems };
+export { getItems, addItem, removeItem, checkResponse };

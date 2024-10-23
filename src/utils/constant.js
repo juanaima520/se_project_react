@@ -1,3 +1,93 @@
+import clearNight from "../assets/night/sunny-night.png";
+import clearDay from "../assets/day/sunny-day.png";
+import cloudyDay from "../assets/day/cloudy-day.png";
+import cloudyNight from "../assets/night/cloudy-night.png";
+import rainDay from "../assets/day/rain-day.png";
+import rainNight from "../assets/night/rain-night.png";
+import stormDay from "../assets/day/storm-day.png";
+import stormNight from "../assets/night/storm-night.png";
+import snowDay from "../assets/day/snow-day.png";
+import snowNight from "../assets/night/snow-night.png";
+import fogDay from "../assets/day/fog-day.png";
+import fogNight from "../assets/night/fog-night.png";
+import defaultDay from "../assets/day/default-day.png";
+import defaultNight from "../assets/night/default-night.png";
+
+export const weatherOptions = [
+  {
+    day: true,
+    condition: "clear",
+    url: clearDay,
+  },
+  {
+    day: false,
+    condition: "clear",
+    url: clearNight,
+  },
+  {
+    day: true,
+    condition: "cloudy",
+    url: cloudyDay,
+  },
+  {
+    day: false,
+    condition: "cloudy",
+    url: cloudyNight,
+  },
+  {
+    day: true,
+    condition: "rain",
+    url: rainDay,
+  },
+  {
+    day: false,
+    condition: "rain",
+    url: rainNight,
+  },
+  {
+    day: true,
+    condition: "storm",
+    url: stormDay,
+  },
+  {
+    day: false,
+    condition: "storm",
+    url: stormNight,
+  },
+  {
+    day: true,
+    condition: "snow",
+    url: snowDay,
+  },
+  {
+    day: false,
+    condition: "snow",
+    url: snowNight,
+  },
+  {
+    day: true,
+    condition: "fog",
+    url: fogDay,
+  },
+  {
+    day: false,
+    condition: "fog",
+    url: fogNight,
+  },
+];
+export const defaultWeatherOptions = [
+  {
+    day: true,
+    condition: "default",
+    url: defaultDay,
+  },
+  {
+    day: false,
+    condition: "default",
+    url: defaultNight,
+  },
+];
+
 export const defaultClothingItems = [
   {
     _id: 0,
