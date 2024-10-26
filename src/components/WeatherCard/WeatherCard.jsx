@@ -10,7 +10,12 @@ function WeatherCard({ weatherData }) {
       option.day === weatherData.isDay &&
       option.condition === weatherData.condition
     );
-  });
+  }); //[]
+  // [ {
+  //   day: false,
+  //   condition: "clear",
+  //   url: clearNight,
+  // }]
 
   let weatherOption;
 

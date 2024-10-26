@@ -26,13 +26,23 @@ export const weatherOptions = [
   },
   {
     day: true,
-    condition: "cloudy",
+    condition: "clouds",
     url: cloudyDay,
   },
   {
     day: false,
-    condition: "cloudy",
+    condition: "clouds",
     url: cloudyNight,
+  },
+  {
+    day: true,
+    condition: "drizzle",
+    url: rainDay,
+  },
+  {
+    day: false,
+    condition: "drizzle",
+    url: rainNight,
   },
   {
     day: true,
@@ -44,14 +54,15 @@ export const weatherOptions = [
     condition: "rain",
     url: rainNight,
   },
+
   {
     day: true,
-    condition: "storm",
+    condition: "thunderstorm",
     url: stormDay,
   },
   {
     day: false,
-    condition: "storm",
+    condition: "thunderstorm",
     url: stormNight,
   },
   {
@@ -74,19 +85,29 @@ export const weatherOptions = [
     condition: "fog",
     url: fogNight,
   },
-];
-export const defaultWeatherOptions = [
   {
+    day: true,
+    condition: "mist",
+    url: fogNight,
+  },
+  {
+    day: false,
+    condition: "mist",
+    url: fogNight,
+  },
+];
+export const defaultWeatherOptions = {
+  day: {
     day: true,
     condition: "default",
     url: defaultDay,
   },
-  {
+  night: {
     day: false,
     condition: "default",
     url: defaultNight,
   },
-];
+};
 
 export const defaultClothingItems = [
   {

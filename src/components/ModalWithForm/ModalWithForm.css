@@ -137,3 +137,30 @@
   font-size: 16px;
   background-color: #0000004d;
 }
+
+.modal__delete-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.modal__delete-text {
+  font-size: 20px;
+  color: #000;
+  width: 367px;
+  height: 48px;
+  text-align: center;
+}
+
+.modal__delete-confirmation {
+  color: #ff4d00;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.modal__delete-cancelation {
+  padding-top: 20px;
+  border: none;
+  background-color: transparent;
+}

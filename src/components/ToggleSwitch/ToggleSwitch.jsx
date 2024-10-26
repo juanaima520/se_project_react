@@ -23,8 +23,8 @@ function ToggleSwitch() {
         checked={checked}
       />
       <label className="switch__label" htmlFor={`react-switch-new`}>
-        <p className="text-f">F</p>
-        <p className="text-c">C</p>
+        <p className="switch__text-f">F</p>
+        <p className="switch__text-c">C</p>
         <span className={`switch__button`} />
       </label>
     </>

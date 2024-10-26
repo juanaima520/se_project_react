@@ -28,8 +28,9 @@ function App() {
     _id: "",
     name: "",
     weather: "",
-    link: "",
+    imageUrl: "",
   });
+  // console.log(JSON.stringify(selectedCard));
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {

@@ -42,7 +42,7 @@
   width: 56px;
 }
 
-.text-f {
+.switch__text-f {
   position: absolute;
   z-index: 1;
   font-size: 14px;
@@ -50,7 +50,7 @@
   color: #ffffff;
 }
 
-.text-c {
+.switch__text-c {
   position: absolute;
   z-index: 1;
   font-size: 14px;

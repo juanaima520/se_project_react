@@ -4,21 +4,23 @@ function DeleteItemModal({ isOpen, handleCardDelete, onClose, selectedCard }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div className="modal__content">
-        <p className="delete__text">
-          Are you sure you want to delete this item? This action is
-          irreversible.
+        <p className="modal__delete-text">
+          Are you sure you want to delete this item?
         </p>
-        <div className="delete__confirm-cancel">
+        <p className="modal__delete-text">This action is irreversible.</p>
+        <p className="modal__delete-text">HEllo</p>
+        <div className="modal__delete-buttons-container">
           <button
             onClick={() => handleCardDelete(selectedCard)}
-            className="delete__confirmation"
+            className="modal__delete-confirmation"
+            type="button"
           >
             Yes, delete item
           </button>
           <button
             onClick={onClose}
             type="button"
-            className="delete__cancelation"
+            className="modal__delete-cancelation"
           >
             Cancel
           </button>
